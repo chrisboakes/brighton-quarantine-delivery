@@ -1,46 +1,22 @@
-<style>
-	h1, figure, p {
-		text-align: center;
-		margin: 0 auto;
-	}
+<script>
+	import Content from '../components/Content.svelte';
 
-	h1 {
-		font-size: 2.8em;
-		text-transform: uppercase;
-		font-weight: 700;
-		margin: 0 0 0.5em 0;
-	}
+	export let data;
+</script>
 
-	figure {
-		margin: 0 0 1em 0;
-	}
-
-	img {
-		width: 100%;
-		max-width: 400px;
-		margin: 0 0 1em 0;
-	}
-
-	p {
-		margin: 1em auto;
-	}
-
-	@media (min-width: 480px) {
-		h1 {
-			font-size: 4em;
+<script context="module">
+	export async function preload({ params, query }) {
+		const res = await this.fetch('https://l4cgvdumqk.execute-api.eu-west-2.amazonaws.com/brighton-community/community-data')
+		const data = await res.json();
+		console.log(data);
+		return {
+			data: data
 		}
 	}
-</style>
+</script>
 
 <svelte:head>
-	<title>Sapper project template</title>
+	<title>Brighton Independent Shops - Coronavirus</title>
 </svelte:head>
 
-<h1>Great success!</h1>
-
-<figure>
-	<img alt='Borat' src='great-success.png'>
-	<figcaption>HIGH FIVE!</figcaption>
-</figure>
-
-<p><strong>Try editing this file (src/routes/index.svelte) to test live reloading.</strong></p>
+<Content content={data} />

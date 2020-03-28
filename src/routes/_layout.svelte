@@ -1,7 +1,5 @@
 <script>
-	import Nav from '../components/Nav.svelte';
-
-	export let segment;
+	import Header from '../components/Header.svelte';
 </script>
 
 <style>
@@ -15,7 +13,7 @@
 	}
 </style>
 
-<Nav {segment}/>
+<Header />
 
 <main>
 	<slot></slot>
