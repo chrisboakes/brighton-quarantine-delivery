@@ -8,7 +8,7 @@
 	export async function preload({ params, query }) {
 		const res = await this.fetch('https://l4cgvdumqk.execute-api.eu-west-2.amazonaws.com/brighton-community/community-data')
 		const data = await res.json();
-		console.log(data);
+
 		return {
 			data: data
 		}
