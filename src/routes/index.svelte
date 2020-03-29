@@ -16,7 +16,7 @@
 </script>
 
 <svelte:head>
-	<title>Brighton Independent Shops - Coronavirus</title>
+	<title>Brighton Quarantine Delivery</title>
 </svelte:head>
 
 <Content content={data} />
