@@ -7,7 +7,6 @@ class Content {
 
     validateUrl(url) {
         if (typeof url === 'string') {
-            console.log(url);
             let link = url.trim();
             let readableLink = 'Visit website';
 
@@ -27,8 +26,8 @@ class Content {
     }
 
     fixContent(content) {
-        content.forEach(item => {
-            if (item.website) {
+        content.forEach((item) => {
+            if (item.website && typeof item.website === 'string') {
                 item.website = this.validateUrl(item.website);
             }
         });
