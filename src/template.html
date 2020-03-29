@@ -19,6 +19,16 @@
 	     for the current page. CSS for the rest of the app is
 	     lazily loaded when it precaches secondary pages -->
 	%sapper.styles%
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127152376-2"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-127152376-2');
+	</script>
 </head>
 <body>
 	<!-- The application will be rendered inside this element,
