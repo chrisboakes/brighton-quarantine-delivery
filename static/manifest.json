@@ -1,8 +1,8 @@
 {
-	"background_color": "#ffffff",
-	"theme_color": "#333333",
-	"name": "TODO",
-	"short_name": "TODO",
+	"background_color": "#f7f7f7",
+	"theme_color": "#124653",
+	"name": "Brighton Coronavirus Delivery",
+	"short_name": "Brighton Delivery",
 	"display": "minimal-ui",
 	"start_url": "/",
 	"icons": [
