@@ -17,6 +17,7 @@
         font-family: var(--title-font);
         font-size: 2rem;
         letter-spacing: 0.10em;
+        margin-bottom: 5px;
         text-transform: uppercase;
     }
 
@@ -130,7 +131,7 @@
         <use xlink:href="#shape-van"></use>
     </svg>
     <h1 class="logo__title">Brighton Quarantine Delivery</h1>
-    <h3 class="logo__description">Independent shops delivering during coronavirus</h3>
+    <h3 class="logo__description">Independent shops delivering during the coronavirus crisis</h3>
 </header>
 
 <span class="facebook-link">
