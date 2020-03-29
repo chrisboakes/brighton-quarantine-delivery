@@ -15,9 +15,4 @@
 	}
 </script>
 
-<svelte:head>
-	<title>Brighton Quarantine Delivery</title>
-	<meta name="description" content="Independent Brighton shops delivering during the coronavirus crisis" />
-</svelte:head>
-
 <Content content={data} />

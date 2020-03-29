@@ -24,7 +24,7 @@ export default {
 			}),
 			svelte({
 				dev,
-				hydratable: true,
+				hydratable: false,
 				emitCss: true
 			}),
 			resolve({
