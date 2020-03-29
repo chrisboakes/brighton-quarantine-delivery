@@ -113,13 +113,13 @@
 
             {#if card.website}
                 <li class="card-item">
-                    <a class="card-item__link" href={card.website} target="_blank" aria-label="Visit website for {card.name}" rel="noopener nofollow">
+                    <a class="card-item__link" href={card.website.link} target="_blank" aria-label="Visit website for {card.name}" rel="noopener nofollow">
                         <svg class="card-item__icon card-item__icon--website">
                             <title>Website Icon</title>
                             <use xlink:href="#shape-website"></use>
                         </svg>
                         <span class="card-item__text">
-                            Visit website
+                            {card.website.readableLink}
                         </span>
                     </a>
                 </li>
