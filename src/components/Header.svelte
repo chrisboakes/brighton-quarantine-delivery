@@ -134,7 +134,7 @@
 </header>
 
 <span class="facebook-link">
-    <a class="facebook-link__content" href="https://www.facebook.com/groups/1558345741007742/" target="_blank" aria-label="Visit the Facebook group">
+    <a class="facebook-link__content" href="https://www.facebook.com/groups/1558345741007742/" target="_blank" aria-label="Visit the Facebook group" rel="noopener nofollow">
         <svg class="facebook-link__icon">
             <title>Facebook Icon</title>
             <use xlink:href="#shape-facebook"></use>

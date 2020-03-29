@@ -1,5 +1,6 @@
 <script>
 	import Header from '../components/Header.svelte';
+	import Footer from '../components/Footer.svelte';
 </script>
 
 <style>
@@ -46,4 +47,6 @@
 	<main class="grid">
 		<slot></slot>
 	</main>
+
+	<Footer />
 </div>
