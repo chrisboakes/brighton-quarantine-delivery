@@ -36,7 +36,16 @@ class Content {
     }
 
     sortByName() {
-        return this.content.sort((a, b) => a.name.localeCompare(b.name));
+        let data = [{
+            name: 'Please try reloading',
+            goods: 'There is a lot of traffic right now. Please reload the page.'
+        }];
+
+        if (!this.content.message) {
+            data = this.content.sort((a, b) => a.name.localeCompare(b.name));
+        }
+
+        return data;
     }
 
     getContent() {
