@@ -1,9 +1,13 @@
 <script>
+    import CardsClass from '../classes/cards';
+
     export let content;
+
+    export let cards = new CardsClass(content);
 </script>
 
 <ul>
-    {#each content as item}
+    {#each cards.getContent() as item}
 		<li>
             <article>
                 <header>
