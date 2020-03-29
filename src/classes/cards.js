@@ -6,21 +6,24 @@ class Content {
     }
 
     validateUrl(url) {
-        let link = url.trim();
-        let readableLink = 'Visit website';
+        if (typeof url === 'string') {
+            console.log(url);
+            let link = url.trim();
+            let readableLink = 'Visit website';
 
-        // Link logic
-        if (!link.includes('https://') && !link.includes('http://') && !link.includes('@')) {
-            link = `http://${url}`;
-        } else if (url.includes('@')) {
-            readableLink = link;
-            link = `mailto:${link}`;
+            // Link logic
+            if (!link.includes('https://') && !link.includes('http://') && !link.includes('@')) {
+                link = `http://${url}`;
+            } else if (url.includes('@')) {
+                readableLink = link;
+                link = `mailto:${link}`;
+            }
+
+            return {
+                link: link,
+                readableLink: readableLink
+            };
         }
-
-        return {
-            link: link,
-            readableLink: readableLink
-        };
     }
 
     fixContent(content) {
