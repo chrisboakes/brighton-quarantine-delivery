@@ -64,6 +64,7 @@
     .card-item__text {
         font-size: 1.4rem;
         margin-left: 10px;
+        word-break: break-word;
     }
 </style>
 
