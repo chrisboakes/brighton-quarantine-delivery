@@ -26,9 +26,9 @@
 <footer>
     <ul class="footer">
         <li class="footer-item">Built by <a href="https://chrisboakes.com/" target="_blank" rel="noopener nofollow">Chris Boakes</a></li>
-        <li class="footer-item">Live data from 
-            <a href="https://docs.google.com/spreadsheets/d/17xHoC2RrEHs0T_8q6SfMKWwvD-fBxzrU1qL7XVAfa8Y/edit?fbclid=IwAR1HSGOPK6nWV2idAoS7qaepCwQwH-WBJqDIu3jU-JIVJCkM2AB5qYAfAiY#gid=0" rel="noopener nofollow" target="_blank">
-                this spreadsheet
+        <li class="footer-item">Data by Jo from
+            <a href="https://www.co-women.org/" rel="noopener nofollow" target="_blank">
+                Co-Women
             </a>
         </li>
         <li class="footer-item">Visit the 
