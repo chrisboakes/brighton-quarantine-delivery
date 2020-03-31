@@ -25,7 +25,7 @@
 	}
 
 	.header-wrapper {
-		padding: 10px 0 20px 0;
+		padding: 30px 0 20px 0;
 	}
 
 	@media (min-width: 768px) {
