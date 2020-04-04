@@ -48,6 +48,20 @@ class Content {
         return data;
     }
 
+    getFilters() {
+        // Array of just item.types
+        const allFilters = this.content.map(item => {
+            if (item.type !== "") {
+                return item.type;
+            }
+        });
+
+        // Strip out duplicates
+        const uniqueFilters = [...new Set(allFilters)];
+
+        return uniqueFilters;
+    }
+
     getContent() {
         return this.fixedContent;
     }

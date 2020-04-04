@@ -1,6 +1,7 @@
 :root {
 	--blue: #124653;
 	--gold: #D4AF37;
+	--grey: #f8f8f8;
 
 	--title-font: 'Oswald', sans-serif;
 	--text-font: 'Open Sans', sans-serif;
@@ -11,7 +12,7 @@ html {
 }
 
 body {
-	background-color: #f8f8f8;
+	background-color: var(--grey);
 	margin: 0;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 14px;
