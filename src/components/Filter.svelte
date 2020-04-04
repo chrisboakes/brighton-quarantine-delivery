@@ -1,10 +1,12 @@
 <script>
-export let filters;
 import { createEventDispatcher } from 'svelte';
+
+export let filters;
+export let filtered;
 
 const dispatch = createEventDispatcher();
 
-let selected;
+let selected = filtered ? filtered : 'all';
 
 function updateFilter(event) {
     if (selected) {

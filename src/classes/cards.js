@@ -62,8 +62,14 @@ class Content {
         return data;
     }
 
+    updateURL(filterName) {
+        const urlParam = filterName === 'all' ? '/' : `/?filter=${encodeURIComponent(filterName)}`;
+        history.pushState(null, `Filtered by ${filterName}`, urlParam);
+    }
+
     filterContent(filterName) {
         let filteredContent = this.fixedContent;
+        this.updateURL(filterName);
 
         if (filterName !== 'all') {
             filteredContent = this.fixedContent.filter(item => {
