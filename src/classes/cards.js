@@ -1,10 +1,19 @@
+/**
+ * Handles content validation
+ * Handles content filtering
+ * @param {Array} content
+ */
 class Content {
-    constructor( content ) {
-        this.content = content;
-        this.sortedContent = this.sortByName(content);
-        this.fixedContent = this.fixContent(this.sortedContent);
+    constructor(content) {
+        this.content = this.fixContent(this.sortContent(content));
     }
 
+    /**
+     * Ensure the email address is all lowercase
+     * Ensure the email address has no whitespace
+     * @param {String} email
+     * @return {Object}
+     */
     validateEmail(email) {
         let validEmail = email.trim().toLowerCase();
 
@@ -14,6 +23,12 @@ class Content {
         }
     }
 
+    /**
+     * Ensure the URLs are properly set
+     * e.g. a URL starting with www. should be prepended with http://
+     * @param {String} url 
+     * @return {Object}
+     */
     validateUrl(url) {
         if (typeof url === 'string') {
             let link = url.trim();
@@ -31,48 +46,61 @@ class Content {
         }
     }
 
+    /**
+     * Validate our array of content
+     * @param {Array} content
+     * @return {Array}
+     */
     fixContent(content) {
-        content.forEach((item) => {
-            if (item.website && typeof item.website === 'string') {
-                item.website = this.validateUrl(item.website);
-            }
+        if (content.length > 0) {
+            content.forEach((item) => {
+                if (item.website && typeof item.website === 'string') {
+                    item.website = this.validateUrl(item.website);
+                }
 
-            if (item.email && typeof item.email === 'string') {
-                item.email = this.validateEmail(item.email);
-            }
+                if (item.email && typeof item.email === 'string') {
+                    item.email = this.validateEmail(item.email);
+                }
 
-            if (item.type && typeof item.type === 'string') {
-                item.type = item.type.trim();
-            }
-        });
+                if (item.type && typeof item.type === 'string') {
+                    item.type = item.type.trim();
+                }
+            });
+        }
 
         return content;
     }
 
-    sortByName() {
-        let data = [{
-            name: 'Please try reloading',
-            goods: 'There is a lot of traffic right now. Please reload the page.'
-        }];
-
-        if (!this.content.message) {
-            data = this.content.sort((a, b) => a.name.localeCompare(b.name));
+    /**
+     * Sort content alphabetically
+     * @return {Array}
+     */
+    sortContent(content) {
+        if (content) {
+            return content.sort((a, b) => a.name.localeCompare(b.name));
         }
-
-        return data;
     }
 
+    /**
+     * Update URL parameters when filtering
+     * @param {String} filterName
+     */
     updateURL(filterName) {
         const urlParam = filterName === 'all' ? '/' : `/?filter=${encodeURIComponent(filterName)}`;
         history.pushState(null, `Filtered by ${filterName}`, urlParam);
     }
 
+    /**
+     * Filter content by category
+     * @param {String} filterName 
+     * @return {Array}
+     */
     filterContent(filterName) {
-        let filteredContent = this.fixedContent;
+        let filteredContent = this.content;
         this.updateURL(filterName);
 
         if (filterName !== 'all') {
-            filteredContent = this.fixedContent.filter(item => {
+            filteredContent = this.content.filter(item => {
                 return item.type === filterName;
             });
         }
@@ -80,6 +108,13 @@ class Content {
         return filteredContent;
     }
 
+    /**
+     * Get array of filters
+     * 1. Array out item types
+     * 2. Strip out duplicate entries
+     * 3. Sort alphabetically
+     * @return {ArrayBufferConstructor}
+     */
     getFilters() {
         // Array of just item.types
         const allFilters = this.content.map(item => {
@@ -91,13 +126,18 @@ class Content {
         // Strip out duplicates
         const uniqueFilters = [...new Set(allFilters)];
 
+        // Sort filter alphabetically
         const sortedFilters = uniqueFilters.sort((a, b) => a.localeCompare(b));
 
         return sortedFilters;
     }
 
+    /**
+     * Return validated content
+     * @return {Array}
+     */
     getContent() {
-        return this.fixedContent;
+        return this.content;
     }
 }
 
