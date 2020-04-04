@@ -48,6 +48,18 @@ class Content {
         return data;
     }
 
+    filterContent(filterName) {
+        let filteredContent = this.fixedContent;
+
+        if (filterName !== 'all') {
+            filteredContent = this.fixedContent.filter(item => {
+                return item.type === filterName;
+            });
+        }
+
+        return filteredContent;
+    }
+
     getFilters() {
         // Array of just item.types
         const allFilters = this.content.map(item => {
@@ -59,7 +71,9 @@ class Content {
         // Strip out duplicates
         const uniqueFilters = [...new Set(allFilters)];
 
-        return uniqueFilters;
+        const sortedFilters = uniqueFilters.sort((a, b) => a.localeCompare(b));
+
+        return sortedFilters;
     }
 
     getContent() {

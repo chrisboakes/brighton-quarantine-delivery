@@ -1,9 +1,15 @@
 <script>
 export let filters;
+import { createEventDispatcher } from 'svelte';
 
-// Process client-side logic
-if (process.browser) {
-    console.log('BROWSER');
+const dispatch = createEventDispatcher();
+
+let selected;
+
+function updateFilter(event) {
+    if (selected) {
+        dispatch('updatefilter', selected);
+    }
 }
 </script>
 
@@ -35,11 +41,13 @@ if (process.browser) {
 <div class="filters">
     <label class="filters__label" for="categories">Filter by category:</label>
 
-    <select class="filters__select" name="categories" data-js="categories">
+    <select bind:value={selected} class="filters__select" name="categories" on:change={updateFilter}>
         <option value="all">All</option>
 
         {#each filters as item}
-            <option value={item}>{item}</option>
+            {#if item}
+                <option value={item}>{item}</option>
+            {/if}
         {/each}
     </select>
 </div>

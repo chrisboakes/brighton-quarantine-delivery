@@ -7,10 +7,16 @@
 
     export const cards = new CardsClass(content);
     export const categories = cards.getFilters();
+    export let cardContent = cards.getContent();
+
+    // When we update the filters list, update the content
+    function filterData(event) {
+        cardContent = cards.filterContent(event.detail);
+    }
 </script>
 
-<Filter filters={categories} />
+<Filter on:updatefilter={filterData} filters={categories} />
 
-{#each cards.getContent() as item}
+{#each cardContent as item}
     <Card card={item} />
 {/each}
