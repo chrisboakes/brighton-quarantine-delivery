@@ -126,6 +126,20 @@
                 </li>
             {/if}
 
+            {#if card.email}
+                 <li class="card-item">
+                    <a class="card-item__link" href={card.email.link} aria-label="Email {card.name}" rel="noopener nofollow">
+                        <svg class="card-item__icon card-item__icon--info">
+                            <title>Email Icon</title>
+                            <use xlink:href="#shape-e-mail"></use>
+                        </svg>
+                        <span class="card-item__text">
+                            {card.email.readableLink}
+                        </span>
+                    </a>
+                </li>
+            {/if}
+
             {#if card.goods}
                 <li class="card-item">
                     <svg class="card-item__icon card-item__icon--info">

@@ -5,6 +5,15 @@ class Content {
         this.fixedContent = this.fixContent(this.sortedContent);
     }
 
+    validateEmail(email) {
+        let validEmail = email.trim().toLowerCase();
+
+        return {
+            link: `mailto:${validEmail}`,
+            readableLink: validEmail
+        }
+    }
+
     validateUrl(url) {
         if (typeof url === 'string') {
             let link = url.trim();
@@ -13,9 +22,6 @@ class Content {
             // Link logic
             if (!link.includes('https://') && !link.includes('http://') && !link.includes('@')) {
                 link = `http://${url}`;
-            } else if (url.includes('@')) {
-                readableLink = link;
-                link = `mailto:${link}`;
             }
 
             return {
@@ -29,6 +35,10 @@ class Content {
         content.forEach((item) => {
             if (item.website && typeof item.website === 'string') {
                 item.website = this.validateUrl(item.website);
+            }
+
+            if (item.email && typeof item.email === 'string') {
+                item.email = this.validateEmail(item.email);
             }
         });
 
