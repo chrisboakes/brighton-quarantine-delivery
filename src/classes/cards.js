@@ -40,6 +40,10 @@ class Content {
             if (item.email && typeof item.email === 'string') {
                 item.email = this.validateEmail(item.email);
             }
+
+            if (item.type && typeof item.type === 'string') {
+                item.type = item.type.trim();
+            }
         });
 
         return content;
