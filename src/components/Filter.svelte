@@ -43,7 +43,7 @@ function updateFilter(event) {
 <div class="filters">
     <label class="filters__label" for="categories">Filter by category:</label>
 
-    <select bind:value={selected} class="filters__select" name="categories" on:change={updateFilter}>
+    <select bind:value={selected} class="filters__select" id="categories" name="categories" on:change={updateFilter}>
         <option value="all">All</option>
 
         {#each filters as item}
