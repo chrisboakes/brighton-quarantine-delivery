@@ -16,3 +16,9 @@ The front-end is built using [Svelte](https://svelte.dev/)
 ```sh
 npm run dev
 ```
+
+# License
+
+[MIT](http://opensource.org/licenses/MIT)
+
+Copyright (c) 2020-present, Boakes (Chris)
